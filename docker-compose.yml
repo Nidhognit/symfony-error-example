@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  php:
+    build: oam/php/config/
+    ports:
+      - "2323:22"
+    volumes:
+      - .:/app
+      - ./oam/php/config/config.ini:/usr/local/etc/php/conf.d/config.ini
+    environment:
+      PHP_IDE_CONFIG: "serverName=site.local"
+      XDEBUG_CONFIG: "remote_host=192.168.220.1"
